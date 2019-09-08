@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onCLICK</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+        }
+        .hp{font-size: 60px}
+        .mp{background-color: red}
+    </style>
+    <script type="text/javascript" src="../static/js/in.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // console.log(typeof $ByTagName("input"))
+
+            $onmouseover($ByTagName("input",to(0,8)),function () {
+                setcssbyobject(this,"backgroundColor","yellow");
+            },true)
+            $onmouseleave($ByTagName("input",to(0,8)),function () {
+                setcssbyobject(this,"backgroundColor","");
+            },true)
+             // $ByTagName("input",0).[0].onmouseover
+        })
+
+    </script>
+</head>
+<body>
+<input type="button" value="1">
+<input type="button" value="2">
+<input type="button" value="3">
+<input type="button" value="4">
+<input type="button" value="5">
+<input type="button" value="6">
+<input type="button" value="7">
+<input type="button" value="start">
+<input type="button" value="stop">
+<input  type="button" value="restart">
+</body>
+</html>

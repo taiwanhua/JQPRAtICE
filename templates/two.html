@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>two</title>
+    <script type="text/javascript" src="../static/js/in.js" th:src="@{/js/in.js}"></script>
+    <style type="text/css">
+        body {
+            background-color: burlywood;
+        }
+    </style>
+
+</head>
+<body>
+
+<input type="button" value="按鈕" id="btn">
+<script>
+    function helloworld() {
+        document.write("<p>helloworld</p>")
+    }
+
+    helloworld();
+    var test = function () {
+        document.write("<p>test</p>")
+    }
+   // test();
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+        test();
+    }
+
+</script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scroll</title>
+    <style type="text/css">
+        body{
+            height: 2000px;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+
+        }
+    </style>
+    <script type="text/javascript" src="../static/jq/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../static/js/ahua_core.js"></script>
+    <script type="text/javascript">
+
+
+        wo(function (ev) {
+            var ev = window.ev || ev;
+            console.log(document.documentElement.clientHeight);
+            $("div")[0].style.top = (parseInt(document.documentElement.clientHeight / 2) - 50).toString() + "px";
+            document.body.onscroll = function () {
+                var scrolltop=document.body.scrollTop ||document.documentElement.scrollTop;
+                $("div")[0].style.top = (parseInt(document.documentElement.clientHeight / 2) - 50+scrolltop).toString() + "px";
+
+                console.log("sss")
+            }
+
+
+        })
+    </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>node</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+        }
+
+        .c {
+            background-color: yellow
+        }
+
+
+    </style>
+    <script type="text/javascript" src="../static/js/in.js"></script>
+    <script>
+        $(function () {
+            // nodeName/nodeType/nodeValue 都只能只項單一對象
+            var box1 = $ByID(box);
+            // console.log(box1);
+            var cla = $ByClassName("f");
+            console.log(cla[0].childNodes);
+//appendChild會搬移重複標籤
+//https://developer.mozilla.org/zh-CN/docs/Web/API/Node/appendChild
+            console.log(box1.childNodes)
+            console.log("a1" === box1.childNodes[1].nodeName.toLowerCase())
+            var d = document.createElement("div");
+            d.innerHTML = "red";
+            d.style.backgroundColor = "red";
+            d.className = "c";
+            var clone = d.cloneNode(true);
+            //console.log(clone)
+            //console.log(d)
+            // clone=d.cloneNode(true)
+            $ByClassName("f")[1].appendChild(clone)
+            console.log(clone)
+            var clone = d.cloneNode(true);
+            $ByClassName("f")[0].appendChild(clone)
+            var clone = d.cloneNode(true);
+            $ByClassName("f")[0].appendChild(clone)
+            console.log(document)
+
+            // cla[0].insertNode(d);
+            // $ByClassName("f")[1].parentNode.insertBefore(d, cla[2])
+
+            console.log(cla[2]);
+            //console.log( cla[0].childNodes[2].previousSibling)
+            bb=$ByClassName("f")[0].getElementsByTagName("div")
+
+            $ByClassName("f")[0].removeChild(bb[0]);
+            $ByClassName("f")[0].removeChild(bb[0]);
+
+            // $ByClassName("f")[0].removeChild(clone);
+        })
+    </script>
+</head>
+<body>
+<div id="box" class="f">123 1
+    <a1>asd<h1>555</h1></a1>
+    <span>adfff</span>
+</div>
+<div id="box1" class="f">456
+    <b>asd<h2>599955</h2></b>
+    <span>aff</span>
+</div>
+
+</body>
+</html>

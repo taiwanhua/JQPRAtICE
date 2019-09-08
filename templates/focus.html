@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>focus</title>
+    <script type="text/javascript" src="../static/jq/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../static/js/ahua_core.js"></script>
+    <script>
+        wo(function () {
+            $("#ok")[0].onfocus = function () {
+                console.log(this);
+                this.style.border = "solid red 3px";
+            }
+            $("#ok")[0].onblur=function () {
+                this.style.border = "";
+            }
+        })
+    </script>
+</head>
+
+<body>
+<input type="text" id="ok">
+</body>
+</html>

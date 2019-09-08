@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sreach</title>
+    <style type="text/css">
+        input {
+            width: 300px;
+        }
+
+        ul {
+            margin: 0px;
+            border: solid burlywood 2px;
+            width: 300px;
+            list-style-type: none;
+            padding-left: 0px;
+        }
+
+        ul li {
+            text-align: left;
+        }
+
+        .show {
+            display: none;
+        }
+
+    </style>
+    <script type="text/javascript" src="../static/jq/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../static/js/ahua_core.js"></script>
+    <script type="text/javascript">
+        wo(function () {
+            ////////不推薦這種方法，會因為運算術度導致抓不到資料
+            // $("li").click(function () {
+            //     $("input")[0].value=this.innerText;
+            //     // $("input").css("value",this.innerText);
+            // })
+            $("input")[0].onfocus = function () {
+                $(".show").css("display", "block");
+            }
+            // $("input")[0].onblur = function () {
+            //     setTimeout(function () {
+            //         $(".show").css("display", "none");
+            //     },100);
+            // }
+            ///////////////
+            $("input")[0].onblur = function () {
+                setTimeout(function () {
+                    $(".show").css("display", "none");
+                },100);
+            }
+            $("ul").click(function (ev) {
+                var ev = window.ev || ev;
+                console.log(ev)
+                var self = ev.target || ev.srcElement;//最子元素事件源
+                console.log(self);
+                $("input")[0].value = self.innerText;
+            })
+        })
+    </script>
+</head>
+<body>
+<input id="input"/>
+<ul class="show">
+    <li>HTML1<span>123</span></li>
+    <li>HTML2</li>
+    <li>HTML3</li>
+    <li>HTML4</li>
+    <li>HTML5</li>
+    <li>HTML6</li>
+</ul>
+</body>
+</html>

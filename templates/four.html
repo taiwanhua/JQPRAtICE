@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>four</title>
+    <script type="text/javascript" src="../static/js/in.js" th:src="@{/js/in.js}"></script>
+    <style type="text/css">
+        body {
+            background-color: burlywood;
+        }
+
+        .color {
+            background-color: yellow;
+
+        }
+    </style>
+</head>
+<body>
+<div id="box1" class="color">
+    hello
+</div>
+<div id="box2" class="color">
+    hello
+</div>
+<script>
+    var div1 = document.getElementById("box1");
+    var div2 = document.getElementById("box2");
+    var color0 = document.getElementsByClassName("color")
+    //nameItem 是ID
+    // console.log(document.getElementsByClassName("color").namedItem("box2"));
+    // console.log(div2);
+    //console.log(div1.style.backgroundColor)
+    //div1.style.backgroundColor="red"
+    for (var i = 0; i < color0.length; i++) {
+        color0[i].onclick = function () {
+            div1.ahua="123456";
+            console.log(div1.ahua);
+    //        div1.style.backgroundColor="red";
+            console.log(div1.style.backgroundColor);
+          //  console.log(this);
+           // this.style.backgroundColor="red";
+          // console.log(this);
+         //  console.log(this.id)
+        }
+    }
+</script>
+
+</body>
+
+
+</html>

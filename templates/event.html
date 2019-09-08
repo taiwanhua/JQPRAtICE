@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event</title>
+    <style type="text/css">
+        #bub {
+            width: 400px;
+            height: 400px;
+            background-color: yellow;
+        }
+
+        #b {
+            position: relative;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+    <script type="text/javascript" src="../static/jq/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../static/js/ahua_core.js"></script>
+    <script>
+        var originX, originY;
+        wo(function () {
+            $("#bub")[0].onmousedown = function () {
+                console.log("冒泡事件觸發")
+            }
+            $("#b")[0].onmousedown = function (ev) {
+                ev.stopPropagation ? ev.stopPropagation() : ev.cancelBubble = true;
+
+                var ev = window.ev || ev;
+                 originleft = ev.target.getcssbyobject("left");
+                origintop = ev.target.getcssbyobject("top");
+                // console.log(ev)
+                // ondown = 0;
+
+                $("#b")[0].onmousemove = function () {
+                    var now = window.event || ev;
+                    ;
+                    $("#b")[0].style.top = parseInt(origintop) + (now.clientY - ev.clientY) + "px"
+                    $("#b")[0].style.left = parseInt(originleft) + (now.clientX - ev.clientX) + "px"
+
+                }
+            }
+            $("#b")[0].onmouseup = function () {
+                $("#b")[0].onmousemove = null;
+            }
+        })
+        // document.onclick = function (ev) {
+        //     var ev = window.ev || ev;
+        //
+        //     var self = ev.target || ev.srcElement;//事件源
+        //     console.log(self)
+        //     console.log(ev.clientX);
+        //     console.log(ev.offsetX);
+        //
+        //
+        // }
+    </script>
+</head>
+<body>
+<div id="bub">
+    <div id="b" style="width: 200px ;height: 100px ;background-color: red"></div>
+</div>
+</body>
+</html>

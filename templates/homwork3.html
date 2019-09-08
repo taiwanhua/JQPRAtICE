@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework3</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+        }
+
+        #containA {
+            display: none;
+        }
+
+        #containB {
+            display: none;
+        }
+
+        #containC {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <input type="button" class="button" value="A排行">
+    <input type="button" class="button" value="B排行">
+    <input type="button" class="button" value="C排行">
+</div>
+<div id="containA">
+    <ul>
+        <li>A第1</li>
+        <li>A第2</li>
+        <li>A第3</li>
+        <li>A第4</li>
+        <li>A第5</li>
+        <li>A第6</li>
+        <li>A第7</li>
+        <li>A第8</li>
+        <li>A第9</li>
+        <li>A第10</li>
+    </ul>
+</div>
+<div id="containB">
+    <ul>
+        <li>B第1</li>
+        <li>B第2</li>
+        <li>B第3</li>
+        <li>B第4</li>
+        <li>B第5</li>
+        <li>B第6</li>
+        <li>B第7</li>
+        <li>B第8</li>
+        <li>B第9</li>
+        <li>B第10</li>
+    </ul>
+</div>
+<div id="containC">
+    <ul>
+        <li>C第1</li>
+        <li>C第2</li>
+        <li>C第3</li>
+        <li>C第4</li>
+        <li>C第5</li>
+        <li>C第6</li>
+        <li>C第7</li>
+        <li>C第8</li>
+        <li>C第9</li>
+        <li>C第10</li>
+    </ul>
+</div>
+
+<script>
+    var which = document.getElementsByTagName("input");
+    var div = document.getElementsByTagName("div");
+    for (var i = 0; i < which.length; i++) {
+        var clear;
+        which[i].index = i;
+        which[i].onmouseover = function () {
+            console.log(this.index)
+            console.log(this)
+            if (clear != null) {
+                div[clear].style.display = "none";
+            }
+            div[this.index + 1].style.display = "block";
+            clear = this.index + 1;
+
+
+        }
+    }
+</script>
+</body>
+</html>

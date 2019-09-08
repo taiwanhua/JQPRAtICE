@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>timer</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+        }
+        .hp{font-size: 60px}
+        .mp{background-color: red}
+    </style>
+    <script type="text/javascript" src="../static/js/in.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            console.log(document)
+            var timmer=null;
+
+            $ByTagName("input", 7).onclick = function () {
+
+                if(timmer==null) {
+                     timmer = setInterval(loop, 1000);
+                }
+                // setTimeout()
+            }
+            $ByTagName("input", 8).onclick = function () {
+
+                clearInterval(timmer);
+                timmer=null;
+                // setTimeout()
+            }
+            $ByTagName("input", 9).onclick = function () {
+                for (var i = 0; i < 7; i++) {
+                    setcssbyobject($ByTagName("input", to(0, 6))[i], "backgroundColor", "");
+                }
+                clearInterval(timmer);
+                timmer=null;
+                time = 0;
+            }
+            var time = 0;
+
+
+            function loop() {
+                console.log(1);
+                setcssbyobject($ByTagName("input", to(0, 6))[time % 7], "backgroundColor", "red");
+                if ((time - 1) % 7 >= 0) {
+                    setcssbyobject($ByTagName("input", to(0, 6))[(time - 1) % 7], "backgroundColor", "");
+                }
+                time = time + 1;
+            }
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="1">
+<input type="button" value="2">
+<input type="button" value="3">
+<input type="button" value="4">
+<input type="button" value="5">
+<input type="button" value="6">
+<input type="button" value="7">
+<input type="button" value="start">
+<input type="button" value="stop">
+<input  type="button" value="restart">
+</body>
+</html>

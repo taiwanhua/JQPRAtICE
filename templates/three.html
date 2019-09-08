@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>three</title>
+    <script type="text/javascript" src="../static/js/in.js" th:src="@{/js/in.js}"></script>
+    <style type="text/css">
+        body {
+            background-color: burlywood;
+        }
+
+        .box{
+            height: 400px;
+            width: 320px;
+        }
+        .section {
+            position: relative;
+            width: 248px;
+            height: 259px;
+            float: left;
+            display: block;
+        }
+        .section p{
+            position: absolute;
+            bottom: -50px;
+            margin: 0px;
+            height: 50px;
+            width: 248px;
+            background-color: yellowgreen;
+            display: none;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="box">
+    <a href="#" class="section">
+        <img src="../static/img/123.jpg">
+        <p>1.試試效果</p>
+    </a>
+</div>
+
+<div class="box">
+    <a href="#" class="section">
+        <img src="../static/img/123.jpg">
+        <p>1.試試效果</p>
+    </a>
+</div>
+
+<div class="box">
+    <a href="#" class="section">
+        <img src="../static/img/123.jpg">
+        <p>1.試試效果</p>
+    </a>
+</div>
+<div class="section">
+    <p >fff</p>
+</div>
+<p >fff</p>
+<script>
+    var a =document.getElementsByTagName("a");
+    var box =document.getElementsByClassName("box");
+    var p=document.getElementsByTagName("p")
+    console.log(a)
+
+    for (var i = 0; i < a.length; i++) {
+        a[i].onmouseover = function () {
+            console.log(p)
+            console.log(this)//誰在發出通知
+            console.log(this.getElementsByTagName("p")[0].style.display)
+            this.getElementsByTagName("p")[0].style.display="block";
+
+        }
+        a[i].onmouseleave = function () {
+            this.getElementsByTagName("p")[0].style.display="none";
+
+        }
+    }
+</script>
+
+</body>
+
+
+</html>

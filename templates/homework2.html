@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>homework2</title>
+    <script type="text/javascript" src="../static/js/in.js" th:src="@{/js/in.js}"></script>
+    <style type="text/css">
+        body {
+            background-color: burlywood;
+        }
+    </style>
+
+</head>
+<body>
+列:<input type="text" id="col">
+
+行:<input type="text" id="row">
+<table>
+    <tr>
+        <td>
+
+        </td>
+    </tr>
+</table>
+
+<input type="button" value="按鈕" id="btn">
+<script>
+    var col = document.getElementById("col");
+    var row = document.getElementById("row");
+    var btn = document.getElementById("btn");
+
+    function rowcol(col, row) {
+        document.write("<table border='1'>");
+        for (var i = 0; i < row; i++) {
+            document.write("<tr> ");
+            for (var j = 0; j < col; j++) {
+                document.write("<td>"+"座標"+(i+1)+","+(j+1)+"</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    }
+
+    btn.onclick = function () {
+        rowcol(col.value, row.value);
+    }
+
+</script>
+
+</body>
+
+
+</html>

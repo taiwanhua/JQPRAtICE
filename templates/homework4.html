@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework4</title>
+    <style type="text/css">
+        body {
+            background-color: burlywood;
+        }
+
+        span {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+<input type="text" id="find" placeholder="輸入搜尋文字">
+<input type="button" id="findbtn" value="尋找"><br>
+<input type="text" id="replace" placeholder="輸入替換文字">
+<input type="button" id="replacebtn" value="替換">
+<p>我有一個小東西，從來也不期抬指數漲好多，好一個厲害啊開高低收，若非霪雨霏霏每天，美每天，好一個厲害啊開高低收</p>
+<script>
+    var read = document.getElementsByTagName("p");
+    var findbtn = document.getElementById("findbtn");
+    var replacebtn = document.getElementById("replacebtn");
+    var find = document.getElementById("find");
+    var replace = document.getElementById("replace");
+    // console.log(read);
+    //  console.log(read[0].innerHTML);
+    var origin_read = read[0].innerHTML;
+    findbtn.onclick = function () {
+        // console.log(origin_read.split(find.value).join("<span>"+find.value+"</span>"));
+        read[0].innerHTML = origin_read.split(find.value).join("<span>" + find.value + "</span>");
+    }
+    replacebtn.onclick = function () {
+        if (find.value != null) {
+            read[0].innerHTML = origin_read.split(find.value).join("<span>" + replace.value + "</span>");
+        }else {
+            alert("請輸入尋找文字");
+        }
+    }
+
+
+</script>
+</body>
+</html>
